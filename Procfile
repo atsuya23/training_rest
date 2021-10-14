@@ -1,1 +1,1 @@
-web: gunicorn training_rest.wsgi --log-file-
+web: gunicorn training_rest.wsgi --log-file -
