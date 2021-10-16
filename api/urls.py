@@ -13,7 +13,7 @@ urlpatterns = [
     path('list-training/', TrainingListView.as_view(), name='list-training'),
     path('detail-training/<str:pk>/', TrainingRetrieveView.as_view(), name='detail-training'),
     path('list-content/', ContentListView.as_view(), name='list-content'),
-    path('detail-content/<str:pk>', ContentRetrieveView.as_view(), name='detail-content'),
+    path('detail-content/<str:pk>/', ContentRetrieveView.as_view(), name='detail-content'),
     path('register/', CreateUserView.as_view(), name='register'),
     path('auth/', include('djoser.urls.jwt')),
     path('', include(router.urls)),
