@@ -19,7 +19,7 @@ class TrainingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Training
-        fields = ('id', 'review', 'evaluation', 'place', 'created_at', 'body_weight_10', 'updated_at')
+        fields = ('id', 'review', 'evaluation', 'place', 'created_at', 'updated_at')
 
 
 class ContentSerializer(serializers.ModelSerializer):

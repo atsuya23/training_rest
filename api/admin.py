@@ -11,10 +11,10 @@ class ContentInline(admin.TabularInline):
 class TrainingAdmin(admin.ModelAdmin):
     fieldsets = [
         ('ABOUT', {'fields': ['evaluation', 'review']}),
-        (None, {'fields': ['place', 'created_at', 'body_weight_10']}),
+        (None, {'fields': ['place', 'created_at']}),
     ]
     inlines = [ContentInline]
-    list_display = ('created_at', 'place', 'evaluation', 'body_weight', 'review')
+    list_display = ('created_at', 'place', 'evaluation', 'review')
     list_filter = ['created_at', 'place']
     search_fields = ['created_at', 'place']
 

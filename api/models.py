@@ -17,7 +17,6 @@ EVALUATION_PLACE = [
 
 
 class Training(models.Model):
-    body_weight_10 = models.PositiveIntegerField(default=700)
     review = models.CharField(max_length=100, null=True, blank=True)
     evaluation = models.CharField(max_length=10,
                                   choices=EVALUATION_PLACE,
@@ -32,19 +31,15 @@ class Training(models.Model):
     def __str__(self):
         return str(self.created_at)
 
-    @admin.display(
-        description="Morning body-weight",
-    )
-    def body_weight(self):
-        return f"{self.body_weight_10 / 10}Kg"
-
 
 TRAINING_CHOICES = [
     ('push-up_normal', '腕立て(normal)'),
     ('push-up_wide', '腕立て(wide)'),
     ('bench_press', 'ベンチプレス'),
-    ('arm_variations', '上腕総合（家）'),
-    ('shoulder_press', 'ショルダーバックプレス'),
+    ('arm_variations', '上腕総合'),
+    ('chinning', 'チンニング'),
+    ('shoulder_press', 'ショルダープレス'),
+    ('over_head_press', 'オーバーヘッドプレス'),
     ('side_rise', 'サイドレイズ'),
     ('arm_curl', 'アームカール'),
     ('kick_back', 'キックバック'),
@@ -55,7 +50,7 @@ TRAINING_CHOICES = [
 class Content(models.Model):
     created_at = models.ForeignKey(Training, on_delete=models.CASCADE)
     training_type = models.CharField(max_length=40, choices=TRAINING_CHOICES)
-    weight = models.PositiveIntegerField("Weight[Kg]", default=12)
+    weight = models.PositiveIntegerField("Weight[Kg]", default=70)
     set1 = models.PositiveIntegerField(default=10)
     set2 = models.PositiveIntegerField(default=9, null=True, blank=True)
     set3 = models.PositiveIntegerField(default=8, null=True, blank=True)
