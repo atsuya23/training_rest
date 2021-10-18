@@ -25,4 +25,4 @@ class TrainingSerializer(serializers.ModelSerializer):
 class ContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Content
-        fields = ('id', 'created_at', 'training_type', 'weight', 'set1', 'set2', 'set3')
+        fields = ('id', 'id_training', 'training_type', 'weight', 'set1', 'set2', 'set3')

@@ -48,7 +48,7 @@ TRAINING_CHOICES = [
 
 
 class Content(models.Model):
-    created_at = models.ForeignKey(Training, on_delete=models.CASCADE)
+    id_training = models.ForeignKey(Training, on_delete=models.CASCADE)
     training_type = models.CharField(max_length=40, choices=TRAINING_CHOICES)
     weight = models.PositiveIntegerField("Weight[Kg]", default=70)
     set1 = models.PositiveIntegerField(default=10)
@@ -72,7 +72,7 @@ class Content(models.Model):
             return True
 
     @admin.display(
-        ordering='created_at',
+        ordering='id_training',
         description='weight amounts',
     )
     def weight_amounts(self):
