@@ -26,6 +26,7 @@ class TrainingRetrieveView(generics.RetrieveAPIView):
 class TrainingViewSet(viewsets.ModelViewSet):
     queryset = Training.objects.all()
     serializer_class = TrainingSerializer
+    permission_classes = (AllowAny,)
 
 
 class ContentListView(generics.ListAPIView):
@@ -43,3 +44,4 @@ class ContentRetrieveView(generics.RetrieveAPIView):
 class ContentViewSet(viewsets.ModelViewSet):
     queryset = Content.objects.all()
     serializer_class = ContentSerializer
+    permission_classes = (AllowAny,)

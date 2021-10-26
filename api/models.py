@@ -35,6 +35,7 @@ class Training(models.Model):
 TRAINING_CHOICES = [
     ('bench_press', 'ベンチプレス'),
     ("incline_bench_press", 'インクラインベンチプレス'),
+    ("dumbbell_press", "ダンベルプレス"),
     ('shoulder_press', 'ショルダープレス'),
     ('chinning', 'チンニング'),
     ('push-up', '腕立て'),
