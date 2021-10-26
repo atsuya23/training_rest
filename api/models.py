@@ -76,9 +76,18 @@ class Content(models.Model):
         description='weight amounts',
     )
     def weight_amounts(self):
-        if self.set1 and self.set2 and self.set3:
-            return f"{self.weight}Kg * ( {self.set1} + {self.set2} + {self.set3} )"
-        elif self.set1 and self.set2:
-            return f"{self.weight}Kg * ( {self.set1} + {self.set2} )"
-        elif self.set1:
-            return f"{self.weight}Kg * {self.set1}"
+        if self.weight:
+            if self.set1 and self.set2 and self.set3:
+                return f"{self.weight}Kg * ( {self.set1} + {self.set2} + {self.set3} )"
+            elif self.set1 and self.set2:
+                return f"{self.weight}Kg * ( {self.set1} + {self.set2} )"
+            elif self.set1:
+                return f"{self.weight}Kg * {self.set1}"
+
+        elif not self.weight:
+            if self.set1 and self.set2 and self.set3:
+                return f"prudence ( {self.set1} + {self.set2} + {self.set3} )"
+            elif self.set1 and self.set2:
+                return f"prudence ( {self.set1} + {self.set2} )"
+            elif self.set1:
+                return f"prudence {self.set1}"
