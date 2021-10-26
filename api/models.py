@@ -33,16 +33,16 @@ class Training(models.Model):
 
 
 TRAINING_CHOICES = [
-    ('push-up_normal', '腕立て(normal)'),
-    ('push-up_wide', '腕立て(wide)'),
     ('bench_press', 'ベンチプレス'),
-    ('arm_variations', '上腕総合'),
-    ('chinning', 'チンニング'),
+    ("incline_bench_press", 'インクラインベンチプレス'),
     ('shoulder_press', 'ショルダープレス'),
+    ('chinning', 'チンニング'),
+    ('push-up', '腕立て'),
     ('over_head_press', 'オーバーヘッドプレス'),
     ('side_rise', 'サイドレイズ'),
     ('arm_curl', 'アームカール'),
     ('kick_back', 'キックバック'),
+    ('arm_variations', '上腕総合'),
     ('something_new', '新種目'),
 ]
 
@@ -64,9 +64,8 @@ class Content(models.Model):
         description='enough weight?',
     )
     def weight_is_enough(self):
-        if (self.training_type == "push-up_normal") or (self.training_type == "bench_press"):
-            return ((self.set1 + self.set2 + self.set3) <= 29) and (self.set3 <= 8)
-        elif self.set1 >= 18 or self.set2 >= 15:
+        if self.training_type == "bench_press" and \
+                (self.set1 >= 15 or (self.set2 and self.set2 >= 12) or (self.set3 and self.set3 >= 10)):
             return False
         else:
             return True
