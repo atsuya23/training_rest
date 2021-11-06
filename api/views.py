@@ -2,8 +2,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
 
-from .serializers import TrainingSerializer, ContentSerializer, UserSerializer
-from .models import Training, Content
+from .serializers import TrainingSerializer, ContentSerializer, UserSerializer, ImageSerializer
+from .models import Training, Content, Image
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -44,4 +44,22 @@ class ContentRetrieveView(generics.RetrieveAPIView):
 class ContentViewSet(viewsets.ModelViewSet):
     queryset = Content.objects.all()
     serializer_class = ContentSerializer
+    permission_classes = (AllowAny,)
+
+
+class ImageListView(generics.ListAPIView):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
+    permission_classes = (AllowAny,)
+
+
+class ImageRetrieveView(generics.RetrieveAPIView):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
+    permission_classes = (AllowAny,)
+
+
+class ImageViewSet(viewsets.ModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
     permission_classes = (AllowAny,)

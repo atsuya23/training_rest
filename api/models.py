@@ -91,3 +91,17 @@ class Content(models.Model):
                 return f"prudence ( {self.set1} + {self.set2} )"
             elif self.set1:
                 return f"prudence {self.set1}"
+
+
+def directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/{1}'.format(instance.user.id, filename)
+
+
+class Image(models.Model):
+    name = models.CharField(max_length=20, unique=True)
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.name
+
