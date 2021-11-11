@@ -27,12 +27,15 @@ class TrainingViewSet(viewsets.ModelViewSet):
     queryset = Training.objects.all()
     serializer_class = TrainingSerializer
     permission_classes = (AllowAny,)
+    filterset_fields = ['created_at', 'place', 'evaluation']
 
 
 class ContentListView(generics.ListAPIView):
     queryset = Content.objects.all()
     serializer_class = ContentSerializer
     permission_classes = (AllowAny,)
+
+
 
 
 class ContentRetrieveView(generics.RetrieveAPIView):
@@ -45,6 +48,7 @@ class ContentViewSet(viewsets.ModelViewSet):
     queryset = Content.objects.all()
     serializer_class = ContentSerializer
     permission_classes = (AllowAny,)
+    filterset_fields = ['id_training', 'training_type', 'weight', 'set1']
 
 
 class ImageListView(generics.ListAPIView):
