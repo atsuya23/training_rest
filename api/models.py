@@ -42,6 +42,7 @@ TRAINING_CHOICES = [
     ('over_head_press', 'オーバーヘッドプレス'),
     ('side_rise', 'サイドレイズ'),
     ('arm_curl', 'アームカール'),
+    ('dips', 'ディップス'),
     ('kick_back', 'キックバック'),
     ('arm_variations', '上腕総合'),
     ('something_new', '新種目'),
