@@ -37,6 +37,7 @@ TRAINING_CHOICES = [
     ("incline_bench_press", 'インクラインベンチプレス'),
     ("dumbbell_press", "ダンベルプレス"),
     ('shoulder_press', 'ショルダープレス'),
+    ('lat_pull_down', 'ラットプルダウン'),
     ('chinning', 'チンニング'),
     ('push-up', '腕立て'),
     ('over_head_press', 'オーバーヘッドプレス'),
@@ -105,4 +106,3 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
-
