@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Training, Content, Image
+from .models import Training, Content, Image, TrainingType
 
 
 class ContentInline(admin.TabularInline):
@@ -34,11 +34,20 @@ class ImageAdmin(admin.ModelAdmin):
     list_display = ('name', 'image')
 
 
+class TrainingTypeAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields': ['type']}),
+    ]
+    list_display = ('type',)
+
+
 admin.site.register(Content, ContentAdmin)
 
 admin.site.register(Training, TrainingAdmin)
 
 admin.site.register(Image, ImageAdmin)
+
+admin.site.register(TrainingType, TrainingTypeAdmin)
 
 
 

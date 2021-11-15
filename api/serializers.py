@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Training, Content, Image
+from .models import Training, Content, Image, TrainingType
 from django.contrib.auth.models import User
 
 
@@ -32,3 +32,10 @@ class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
         fields = ('id', 'name', 'image')
+
+
+class TrainingTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingType
+        fields = ('id', 'type')
+
