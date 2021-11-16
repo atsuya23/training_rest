@@ -57,6 +57,7 @@ class Content(models.Model):
     set1 = models.PositiveIntegerField(default=10)
     set2 = models.PositiveIntegerField(default=9, null=True, blank=True)
     set3 = models.PositiveIntegerField(default=8, null=True, blank=True)
+    created_at = models.DateField("Date", default=timezone.now(), null=True, blank=True)
 
     def __str__(self):
         return f"{self.training_type} : {self.weight}Kg"

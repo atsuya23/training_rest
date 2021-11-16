@@ -25,6 +25,7 @@ class ContentAdmin(admin.ModelAdmin):
         ('rep number', {'fields': ['set1', 'set2', 'set3']})
     ]
     list_display = ('training_type', 'weight_amounts', 'id_training', 'weight_is_enough')
+    search_fields = ['training_type', "id_training"]
 
 
 class ImageAdmin(admin.ModelAdmin):

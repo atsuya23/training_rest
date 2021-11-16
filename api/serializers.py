@@ -25,7 +25,7 @@ class TrainingSerializer(serializers.ModelSerializer):
 class ContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Content
-        fields = ('id', 'id_training', 'training_type', 'weight', 'set1', 'set2', 'set3')
+        fields = ('id', 'id_training', 'training_type', 'weight', 'set1', 'set2', 'set3', 'created_at')
 
 
 class ImageSerializer(serializers.ModelSerializer):
