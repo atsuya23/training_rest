@@ -48,7 +48,7 @@ class ContentViewSet(viewsets.ModelViewSet):
     queryset = Content.objects.all()
     serializer_class = ContentSerializer
     permission_classes = (AllowAny,)
-    filterset_fields = ['id_training', 'training_type', 'weight', 'created_at']
+    filterset_fields = ['id_training', 'training_type', 'weight']
 
 
 class ImageListView(generics.ListAPIView):

@@ -25,7 +25,7 @@ class Training(models.Model):
                              max_length=10,
                              choices=TRAINING_PLACE,
                              default="home")
-    created_at = models.DateField("Date", default=timezone.now(), )
+    created_at = models.DateField("Date", default=timezone.now())
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -51,13 +51,13 @@ TRAINING_CHOICES = [
 
 
 class Content(models.Model):
-    id_training = models.ForeignKey(Training, on_delete=models.CASCADE)
+    id_training = models.ForeignKey(Training, on_delete=models.CASCADE, related_name="id_training")
     training_type = models.CharField(max_length=40, choices=TRAINING_CHOICES)
     weight = models.PositiveIntegerField("Weight[Kg]", default=70)
     set1 = models.PositiveIntegerField(default=10)
     set2 = models.PositiveIntegerField(default=9, null=True, blank=True)
     set3 = models.PositiveIntegerField(default=8, null=True, blank=True)
-    created_at = models.DateField("Date", default=timezone.now(), null=True, blank=True)
+
 
     def __str__(self):
         return f"{self.training_type} : {self.weight}Kg"

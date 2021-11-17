@@ -5,6 +5,7 @@ from .models import Training, Content, Image, TrainingType
 
 class ContentInline(admin.TabularInline):
     model = Content
+    fk_name = "id_training"
     extra = 5
 
 
@@ -25,6 +26,7 @@ class ContentAdmin(admin.ModelAdmin):
         ('rep number', {'fields': ['set1', 'set2', 'set3']})
     ]
     list_display = ('training_type', 'weight_amounts', 'id_training', 'weight_is_enough')
+    list_filter = ['training_type', 'weight', 'id_training']
     search_fields = ['training_type', "id_training"]
 
 
@@ -49,7 +51,3 @@ admin.site.register(Training, TrainingAdmin)
 admin.site.register(Image, ImageAdmin)
 
 admin.site.register(TrainingType, TrainingTypeAdmin)
-
-
-
-

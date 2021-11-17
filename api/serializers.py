@@ -15,17 +15,17 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class TrainingSerializer(serializers.ModelSerializer):
-    # created_at = serializers.DateTimeField(format="%Y/%m/%d")
-
     class Meta:
         model = Training
         fields = ('id', 'review', 'evaluation', 'place', 'created_at', 'updated_at')
 
 
 class ContentSerializer(serializers.ModelSerializer):
+    id_training = TrainingSerializer()
+
     class Meta:
         model = Content
-        fields = ('id', 'id_training', 'training_type', 'weight', 'set1', 'set2', 'set3', 'created_at')
+        fields = '__all__'
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -38,4 +38,3 @@ class TrainingTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrainingType
         fields = ('id', 'type')
-
