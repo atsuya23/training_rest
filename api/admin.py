@@ -32,7 +32,7 @@ class ContentAdmin(admin.ModelAdmin):
 
 class TrainingTypeAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['type', 'goal_amount', 'main_part']}),
+        (None, {'fields': ['type']}),
     ]
     list_display = ('type',)
 

@@ -59,3 +59,4 @@ class TrainingTypeViewSet(viewsets.ModelViewSet):
     queryset = TrainingType.objects.all()
     serializer_class = TrainingTypeSerializer
     permission_classes = (AllowAny,)
+    filterset_fields = ['type']
