@@ -40,7 +40,7 @@ TRAINING_CHOICES = [
     ('lat_pull_down', 'ラットプルダウン'),
     ('chinning', 'チンニング'),
     ('push-up', '腕立て'),
-    ('over_head_press', 'オーバーヘッドプレス'),
+    ('over_head_press', 'トライセプスエクステンション'),
     ('side_rise', 'サイドレイズ'),
     ('arm_curl', 'アームカール'),
     ('dips', 'ディップス'),
@@ -57,7 +57,6 @@ class Content(models.Model):
     set1 = models.PositiveIntegerField(default=10)
     set2 = models.PositiveIntegerField(default=9, null=True, blank=True)
     set3 = models.PositiveIntegerField(default=8, null=True, blank=True)
-
 
     def __str__(self):
         return f"{self.training_type} : {self.weight}Kg"
@@ -96,21 +95,10 @@ class Content(models.Model):
                 return f"prudence {self.set1}"
 
 
-def directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'user_{0}/{1}'.format(instance.user.id, filename)
-
-
-class Image(models.Model):
-    name = models.CharField(max_length=20, unique=True)
-    image = models.ImageField(upload_to='images/')
-
-    def __str__(self):
-        return self.name
-
-
 class TrainingType(models.Model):
     type = models.CharField(max_length=30, unique=True)
+    goal_amount = models.PositiveIntegerField(default=0)
+    main_part = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.type
