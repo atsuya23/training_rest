@@ -35,6 +35,7 @@ class Training(models.Model):
 TRAINING_CHOICES = [
     ('bench_press', 'ベンチプレス'),
     ("incline_bench_press", 'インクラインベンチプレス'),
+    ('decline_bench_press', 'デクラインベンチプレス'),
     ("dumbbell_press", "ダンベルプレス"),
     ('shoulder_press', 'ショルダープレス'),
     ('lat_pull_down', 'ラットプルダウン'),
@@ -97,6 +98,7 @@ class Content(models.Model):
 
 class TrainingType(models.Model):
     type = models.CharField(max_length=30, unique=True)
+
     # goal_amount = models.PositiveIntegerField(default=0, null=True, blank=True)
     # main_part = models.CharField(max_length=100, default="", null=True, blank=True)
 
