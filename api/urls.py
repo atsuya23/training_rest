@@ -15,7 +15,7 @@ urlpatterns = [
     path('detail-training/<str:pk>/', TrainingRetrieveView.as_view(), name='detail-training'),
     path('list-content/', ContentListView.as_view(), name='list-content'),
     path('detail-content/<str:pk>/', ContentRetrieveView.as_view(), name='detail-content'),
-    path('list-trainingAbout/', TrainingTypeListView.as_view(), name='list-trainingAbout'),
+    path('list-trainingType/', TrainingTypeListView.as_view(), name='list-trainingType'),
     path('register/', CreateUserView.as_view(), name='register'),
     path('auth/', include('djoser.urls.jwt')),
     path('', include(router.urls)),
