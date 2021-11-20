@@ -12,7 +12,7 @@ MEMO_CATEGORY = [
 
 class Memo(models.Model):
     title = models.CharField(max_length=40)
-    memo = models.CharField(max_length=300)
+    memo = models.TextField(max_length=300)
     category = models.CharField(max_length=30, choices=MEMO_CATEGORY)
     created_at = models.DateField(default=timezone.now())
 
