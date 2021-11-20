@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Training, Content, TrainingType, Memo
+from .models import Training, Content, TrainingType
 
 
 class ContentInline(admin.TabularInline):
@@ -50,4 +50,3 @@ admin.site.register(Training, TrainingAdmin)
 
 admin.site.register(TrainingType, TrainingTypeAdmin)
 
-admin.site.register(Memo, MemoAdmin)

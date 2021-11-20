@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Training, Content, TrainingType, Memo
+from .models import Training, Content, TrainingType
 from django.contrib.auth.models import User
 
 
@@ -33,9 +33,4 @@ class TrainingTypeSerializer(serializers.ModelSerializer):
         model = TrainingType
         fields = '__all__'
 
-
-class MemoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Memo
-        fields = '__all__'
 

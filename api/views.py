@@ -2,8 +2,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework import viewsets
 
-from .serializers import TrainingSerializer, ContentSerializer, UserSerializer, TrainingTypeSerializer, MemoSerializer
-from .models import Training, Content, TrainingType, Memo
+from .serializers import TrainingSerializer, ContentSerializer, UserSerializer, TrainingTypeSerializer
+from .models import Training, Content, TrainingType
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -60,10 +60,3 @@ class TrainingTypeViewSet(viewsets.ModelViewSet):
     serializer_class = TrainingTypeSerializer
     permission_classes = (AllowAny,)
     filterset_fields = ['type']
-
-
-class MemoViewSet(viewsets.ModelViewSet):
-    queryset = Memo.objects.all()
-    serializer_class = MemoSerializer
-    permission_classes = (AllowAny,)
-    filterset_fields = ['category', 'created_at']

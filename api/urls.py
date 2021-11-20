@@ -3,14 +3,13 @@ from django.conf.urls import include
 from rest_framework import routers
 from api.views import TrainingViewSet, TrainingListView, TrainingRetrieveView, \
     ContentRetrieveView, ContentListView, CreateUserView, ContentViewSet, \
-    TrainingTypeViewSet, TrainingTypeListView, \
-    MemoViewSet
+    TrainingTypeViewSet, TrainingTypeListView
+
 
 router = routers.DefaultRouter()
 router.register('training', TrainingViewSet, basename='training')
 router.register('content', ContentViewSet, basename='content')
 router.register('trainingType', TrainingTypeViewSet, basename='trainingType')
-router.register('memo', MemoViewSet, basename='memo')
 
 urlpatterns = [
     path('list-training/', TrainingListView.as_view(), name='list-training'),

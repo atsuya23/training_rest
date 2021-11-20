@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'api.apps.ApiConfig',
+    'memo.apps.ApiConfig',
     'corsheaders',
     'djoser',
     'django_filters',
