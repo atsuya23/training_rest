@@ -59,6 +59,7 @@ MIDDLEWARE = [
 ]
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'https://training-front-ovnhn760y-atsuya23.vercel.app'
 ]
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
